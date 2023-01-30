@@ -51,7 +51,7 @@ li {
   vertical-align: top;
 }
 .menu {
-  text-decoration: underline;
+  text-underline-offset: auto;
 }
 .place-time {
   margin-top: 10px;
@@ -78,9 +78,11 @@ li {
 }
 
 #current-weather-icon {
-  font-size: 200px;
-  max-width: 100%;
-  height: auto;
+  display: inline-block;
+  height: 60px;
+  margin-top: unset;
+  vertical-align: top;
+  width: 60px;
 }
 .units {
   color: #202124;
