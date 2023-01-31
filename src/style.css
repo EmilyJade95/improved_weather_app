@@ -91,26 +91,28 @@ li {
   text-transform: capitalize;
 }
 
-.celsius-link {
-  color: #202124;
+.unit {
+  color: blue;
   display: inline-block;
   font-size: 26px;
   line-height: 24px;
   margin-top: 6px;
   padding-left: 6px;
   vertical-align: 160%;
-}
-.fahrenheit-link {
-  color: #202124;
-  display: inline-block;
-  font-size: 26px;
-  line-height: 24px;
-  margin-top: 6px;
-  padding-left: 6px;
-  vertical-align: 160%;
+  text-decoration: none;
 }
 
 .footer {
   font-size: 13px;
   text-align: center;
+}
+
+.temperature .active {
+  color: #202124;
+  cursor: default;
+  text-decoration: none;
+}
+
+.temperature .active:hover {
+  text-decoration: none;
 }

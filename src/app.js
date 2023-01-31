@@ -97,6 +97,8 @@ function displayFahrenheitTemperature(event) {
   let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
   let mainTemp = document.querySelector(".current-temperature");
   mainTemp.innerHTML = Math.round(fahrenheitTemperature);
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
   let realFeelFahrenheit = Math.round((realFeelTemperature * 9) / 5 + 32);
   let feelsLike = document.querySelector(".feels-like");
   feelsLike.innerHTML = `Real Feel: ${realFeelFahrenheit}°`;
@@ -106,6 +108,8 @@ function displayCelsiusTemperature(event) {
   event.preventDefault();
   let mainTemp = document.querySelector(".current-temperature");
   mainTemp.innerHTML = Math.round(celsiusTemperature);
+  fahrenheitLink.classList.remove("active");
+  celsiusLink.classList.add("active");
   let feelsLike = document.querySelector(".feels-like");
   feelsLike.innerHTML = "Real Feel: " + Math.round(realFeelTemperature) + "°";
 }
