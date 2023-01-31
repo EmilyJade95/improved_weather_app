@@ -54,6 +54,10 @@ function showCurrentTemperature(response) {
   let realFeel = Math.round(response.data.temperature.feels_like);
   let windSpeed = Math.round(response.data.wind.speed);
   let weatherDesc = response.data.condition.description;
+
+  celsiusTemperature = response.data.temperature.current;
+  realFeelTemperature = response.data.temperature.feels_like;
+
   let h1 = document.querySelector("h1");
   h1.innerHTML = `${currentCity}, ${currentCountry}`;
   let mainTemp = document.querySelector(".current-temperature");
@@ -61,7 +65,7 @@ function showCurrentTemperature(response) {
   let humid = document.querySelector(".humidity");
   humid.innerHTML = `Humidity: ${humidity}%`;
   let feelsLike = document.querySelector(".feels-like");
-  feelsLike.innerHTML = `Real Feel: ${realFeel}°`;
+  feelsLike.innerHTML = `Real Feel: ${realFeel}℃`;
   let wind = document.querySelector(".wind");
   wind.innerHTML = `Wind Speed: ${windSpeed} km/h`;
   let weatherDescription = document.querySelector(".weather-desc");
@@ -74,6 +78,8 @@ function showCurrentTemperature(response) {
   weatherIcon.setAttribute("alt", response.data.condition.icon);
 }
 
+//Search for a City
+
 function searchCity(event) {
   event.preventDefault();
   let cityInput = document.querySelector("#search-input");
@@ -84,3 +90,33 @@ function searchCity(event) {
 }
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", searchCity);
+
+//Add unit conversion
+function displayFahrenheitTemperature(event) {
+  event.preventDefault();
+  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
+  let mainTemp = document.querySelector(".current-temperature");
+  mainTemp.innerHTML = Math.round(fahrenheitTemperature);
+  let realFeelFahrenheit = Math.round((realFeelTemperature * 9) / 5 + 32);
+  let feelsLike = document.querySelector(".feels-like");
+  feelsLike.innerHTML = `Real Feel: ${realFeelFahrenheit}°`;
+}
+
+function displayCelsiusTemperature(event) {
+  event.preventDefault();
+  let mainTemp = document.querySelector(".current-temperature");
+  mainTemp.innerHTML = Math.round(celsiusTemperature);
+  let feelsLike = document.querySelector(".feels-like");
+  feelsLike.innerHTML = "Real Feel: " + Math.round(realFeelTemperature) + "°";
+}
+
+let celsiusTemperature = null;
+let realFeelTemperature = null;
+
+let fahrenheitLink = document.querySelector(".fahrenheit-link");
+fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
+
+let celsiusLink = document.querySelector(".celsius-link");
+celsiusLink.addEventListener("click", displayCelsiusTemperature);
+
+searchCity("New York");

@@ -79,7 +79,7 @@ li {
 #current-weather-icon {
   display: inline;
   margin-top: unset;
-  margin-left: 10px
+  margin-left: 10px;
   vertical-align: top;
   width: 45%;
 }
@@ -91,7 +91,7 @@ li {
   text-transform: capitalize;
 }
 
-.celsius-conversion {
+.celsius-link {
   color: #202124;
   display: inline-block;
   font-size: 26px;
@@ -100,7 +100,7 @@ li {
   padding-left: 6px;
   vertical-align: 160%;
 }
-.fahrenheit-conversion {
+.fahrenheit-link {
   color: #202124;
   display: inline-block;
   font-size: 26px;
