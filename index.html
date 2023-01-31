@@ -38,41 +38,56 @@
             <input type="submit" value="Search" class="col-2 search-btn" />
           </form>
           <div class="row">
-            <small id="current-location">📍 Use my current location</small>
+            <p id="current-location">
+              📍 <a href="#"> Use my current location</a>
+            </p>
           </div>
           <div class="row place-time">
             <div class="col-6"><h1>Zurich, Switzerland</h1></div>
-            <div class="col-6">
+          </div>
+          <div class="row">
+            <div class="col-8">
               <ul class="date-time">
                 <li class="date">Monday, January 30 2023</li>
                 <li class="time">13:10</li>
               </ul>
             </div>
-            <div class="row current-weather">
-              <div class="col-8">
-                <img
-                  src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
-                  alt="current-weather-icon"
-                  id="current-weather-icon"
-                />
-                <div class="row"><p>Partly Cloudy</p></div>
-              </div>
-              <div class="col-4">
-                <p>
-                  <span class="current-temperature">-2</span>
-                  <span><small class="units">℃|℉</small></span>
-                </p>
-              </div>
-              <div class="row menu">
-                <ul id="weather-details">
-                  <li class="col-4">Precipitation: 1%</li>
-                  <li class="col-4">Humidity: 67%</li>
-                  <li class="col-4">Wind: 14km/h</li>
-                </ul>
-              </div>
+          </div>
+          <div class="row current-weather">
+            <div class="col-7">
+              <img
+                src="https://cdn.icon-icons.com/icons2/2791/PNG/512/partly_cloudy_day_sun_clouds_weather_icon_177560.png"
+                alt="current-weather-icon"
+                id="current-weather-icon"
+              />
+            </div>
+            <div class="col-5">
+              <p class="current-temperature">-2</p>
+              <a href="#" class="celsius-conversion">℃</a
+              ><a href="#" class="fahrenheit-conversion">|℉</a>
             </div>
           </div>
+          <div class="row">
+            <div class="col-12"><p class="weather-desc">Partly Cloudy</p></div>
+          </div>
+          <div class="row menu">
+            <ul id="weather-details">
+              <li class="col-4 weather-menu">Precipitation: 1%</li>
+              <li class="col-4 weather-menu">Humidity: 67%</li>
+              <li class="col-4 weather-menu">Wind: 14km/h</li>
+            </ul>
+          </div>
         </div>
+      </div>
+      <div class="row footer">
+        <p>
+          <a
+            href="https://github.com/EmilyJade95/improved_weather_app"
+            class="github-link"
+            >Open-source code</a
+          >
+          built with ❤ by Emily Harrison
+        </p>
       </div>
     </div>
   </body>
