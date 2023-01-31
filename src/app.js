@@ -66,6 +66,12 @@ function showCurrentTemperature(response) {
   wind.innerHTML = `Wind Speed: ${windSpeed} km/h`;
   let weatherDescription = document.querySelector(".weather-desc");
   weatherDescription.innerHTML = `${weatherDesc}`;
+  let weatherIcon = document.querySelector("#current-weather-icon");
+  weatherIcon.setAttribute(
+    "src",
+    `https://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`
+  );
+  weatherIcon.setAttribute("alt", response.data.condition.icon);
 }
 
 function searchCity(event) {
