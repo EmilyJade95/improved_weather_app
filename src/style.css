@@ -1,9 +1,10 @@
-body {
-  font-family: "Poppins", sans-serif;
-}
-
 container {
   margin: 50px;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: #939dac71;
 }
 
 form {
