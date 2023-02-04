@@ -84,6 +84,16 @@ li {
   width: 45%;
 }
 
+.search-input {
+  border-radius: 5px;
+  height: 40px;
+  border: none;
+}
+
+.search-btn {
+  height: 40px;
+}
+
 .weather-desc {
   font-size: 26px;
   padding-left: 10px;
