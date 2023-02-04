@@ -40,6 +40,8 @@ function formatDate(timestamp) {
   return `${day}, ${month} ${currentDate} ${fullYear}, ${hours}:${minutes}`;
 }
 
+formatDate();
+
 //Add search Engine Functionality
 function showCurrentTemperature(response) {
   let currentCity = response.data.city;
