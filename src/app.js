@@ -114,6 +114,54 @@ function displayCelsiusTemperature(event) {
   feelsLike.innerHTML = "Real Feel: " + Math.round(realFeelTemperature) + "°";
 }
 
+//Add Use my current location button
+function showGeoLocatedTemperature(response) {
+  let currentCity = response.data.city;
+  let currentCountry = response.data.country;
+  let currentTemperature = Math.round(response.data.temperature.current);
+  let humidity = response.data.temperature.humidity;
+  let realFeel = Math.round(response.data.temperature.feels_like);
+  let windSpeed = Math.round(response.data.wind.speed);
+  let weatherDesc = response.data.condition.description;
+
+  celsiusTemperature = response.data.temperature.current;
+  realFeelTemperature = response.data.temperature.feels_like;
+
+  let h1 = document.querySelector("h1");
+  h1.innerHTML = `${currentCity}, ${currentCountry}`;
+  let mainTemp = document.querySelector(".current-temperature");
+  mainTemp.innerHTML = `${currentTemperature}`;
+  let humid = document.querySelector(".humidity");
+  humid.innerHTML = `Humidity: ${humidity}%`;
+  let feelsLike = document.querySelector(".feels-like");
+  feelsLike.innerHTML = `Real Feel: ${realFeel}℃`;
+  let wind = document.querySelector(".wind");
+  wind.innerHTML = `Wind Speed: ${windSpeed} km/h`;
+  let weatherDescription = document.querySelector(".weather-desc");
+  weatherDescription.innerHTML = `${weatherDesc}`;
+  let weatherIcon = document.querySelector("#current-weather-icon");
+  weatherIcon.setAttribute(
+    "src",
+    `https://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`
+  );
+  weatherIcon.setAttribute("alt", response.data.condition.icon);
+}
+
+function showCurrentPosition(position) {
+  let lat = position.coords.latitude;
+  let lon = position.coords.longitude;
+  let apiKey = "776b6d9305acf4056ofe6t078ed04517";
+  let weatherApiUrl = `https://api.shecodes.io/weather/v1/current?lon=${lon}&lat=${lat}&key=${apiKey}&units=metric`;
+  axios.get(weatherApiUrl).then(showGeoLocatedTemperature);
+}
+
+function findCurrentLocation() {
+  navigator.geolocation.getCurrentPosition(showCurrentPosition);
+}
+
+let currentLocation = document.querySelector("#current-location");
+currentLocation.addEventListener("click", findCurrentLocation);
+
 let celsiusTemperature = null;
 let realFeelTemperature = null;
 
