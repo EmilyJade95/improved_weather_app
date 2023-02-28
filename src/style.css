@@ -4,7 +4,7 @@ container {
 
 body {
   font-family: "Poppins", sans-serif;
-  background: #939dac71;
+  background: #d6dbe371;
 }
 
 form {
@@ -68,12 +68,13 @@ li {
   display: flex;
   list-style: none;
   text-align: center;
+  font-weight: 200;
   padding: 0px;
   text-underline-offset: auto;
 }
 
 .weather-menu {
-  font-weight: 300;
+  font-weight: 200;
 }
 
 #current-weather-icon {
@@ -81,7 +82,7 @@ li {
   margin-top: unset;
   margin-left: 10px;
   vertical-align: top;
-  width: 45%;
+  width: 40%;
 }
 
 .search-input {
@@ -95,9 +96,7 @@ li {
 }
 
 .weather-desc {
-  font-size: 26px;
-  padding-left: 10px;
-  margin-bottom: 20px;
+  font-weight: 200;
   text-transform: capitalize;
 }
 
@@ -117,6 +116,18 @@ li {
 }
 
 .weather-forecast {
-  margin-top: 10px;
+  margin-top: 20px;
   text-align: center;
+}
+
+.weather-forecast-temp-max {
+  font-weight: bold;
+}
+
+.day {
+  border-radius: 15px;
+}
+
+.day:hover {
+  background: rgb(174, 218, 239);
 }

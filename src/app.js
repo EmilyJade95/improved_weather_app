@@ -59,14 +59,14 @@ function displayForecast(response) {
     if (index < 6) {
       forecastHTML =
         forecastHTML +
-        `<div class="col-2">
+        `<div class="col-2 day">
               <div class="weather-forecast-day">${formatDay(
                 forecastDay.time
               )}</div>
               <img
                 src=${forecastDay.condition.icon_url}
                 alt=${forecastDay.condition.icon}
-                width="40"
+                width="45"
               />
               <div class="weather-forecast-temps">
                 <span class="weather-forecast-temp-max">${Math.round(
@@ -103,15 +103,15 @@ function showCurrentTemperature(response) {
   realFeelTemperature = response.data.temperature.feels_like;
 
   let h1 = document.querySelector("h1");
-  h1.innerHTML = `${currentCity}, ${currentCountry}`;
+  h1.innerHTML = `🌍 ${currentCity}, ${currentCountry}`;
   let mainTemp = document.querySelector(".current-temperature");
   mainTemp.innerHTML = `${currentTemperature}`;
   let humid = document.querySelector(".humidity");
-  humid.innerHTML = `Humidity: ${humidity}%`;
+  humid.innerHTML = `💧Humidity: ${humidity}%`;
   let feelsLike = document.querySelector(".feels-like");
-  feelsLike.innerHTML = `Real Feel: ${realFeel}℃`;
+  feelsLike.innerHTML = `🌡Real Feel: ${realFeel}℃`;
   let wind = document.querySelector(".wind");
-  wind.innerHTML = `Wind Speed: ${windSpeed} km/h`;
+  wind.innerHTML = `🍃Wind Speed: ${windSpeed} km/h`;
   let dateElement = document.querySelector(".date");
   dateElement.innerHTML = formatDate(response.data.time * 1000);
   let weatherDescription = document.querySelector(".weather-desc");
