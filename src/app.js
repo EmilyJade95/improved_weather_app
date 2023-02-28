@@ -163,36 +163,4 @@ function findCurrentLocation() {
 let currentLocation = document.querySelector("#current-location");
 currentLocation.addEventListener("click", findCurrentLocation);
 
-//Add unit conversion
-function displayFahrenheitTemperature(event) {
-  event.preventDefault();
-  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
-  let mainTemp = document.querySelector(".current-temperature");
-  mainTemp.innerHTML = Math.round(fahrenheitTemperature);
-  celsiusLink.classList.remove("active");
-  fahrenheitLink.classList.add("active");
-  let realFeelFahrenheit = Math.round((realFeelTemperature * 9) / 5 + 32);
-  let feelsLike = document.querySelector(".feels-like");
-  feelsLike.innerHTML = `Real Feel: ${realFeelFahrenheit}°`;
-}
-
-function displayCelsiusTemperature(event) {
-  event.preventDefault();
-  let mainTemp = document.querySelector(".current-temperature");
-  mainTemp.innerHTML = Math.round(celsiusTemperature);
-  fahrenheitLink.classList.remove("active");
-  celsiusLink.classList.add("active");
-  let feelsLike = document.querySelector(".feels-like");
-  feelsLike.innerHTML = "Real Feel: " + Math.round(realFeelTemperature) + "°";
-}
-
-let celsiusTemperature = null;
-let realFeelTemperature = null;
-
-let fahrenheitLink = document.querySelector(".fahrenheit-link");
-fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
-
-let celsiusLink = document.querySelector(".celsius-link");
-celsiusLink.addEventListener("click", displayCelsiusTemperature);
-
 search("Zurich");

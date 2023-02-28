@@ -102,7 +102,6 @@ li {
 }
 
 .unit {
-  color: blue;
   display: inline-block;
   font-size: 26px;
   line-height: 24px;
@@ -115,16 +114,6 @@ li {
 .footer {
   font-size: 13px;
   text-align: center;
-}
-
-.temperature .active {
-  color: #202124;
-  cursor: default;
-  text-decoration: none;
-}
-
-.temperature .active:hover {
-  text-decoration: none;
 }
 
 .weather-forecast {
