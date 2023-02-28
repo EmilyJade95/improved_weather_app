@@ -126,3 +126,8 @@ li {
 .temperature .active:hover {
   text-decoration: none;
 }
+
+.weather-forecast {
+  margin-top: 10px;
+  text-align: center;
+}
