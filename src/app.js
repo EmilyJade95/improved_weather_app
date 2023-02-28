@@ -42,6 +42,53 @@ function formatDate(timestamp) {
 
 formatDate();
 
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  return days[day];
+}
+
+function displayForecast(response) {
+  console.log(response.data.daily);
+  let forecast = response.data.daily;
+  let forecastElement = document.querySelector("#forecast");
+
+  let forecastHTML = `<div class="row">`;
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `<div class="col-2">
+              <div class="weather-forecast-day">${formatDay(
+                forecastDay.time
+              )}</div>
+              <img
+                src=${forecastDay.condition.icon_url}
+                alt=${forecastDay.condition.icon}
+                width="40"
+              />
+              <div class="weather-forecast-temps">
+                <span class="weather-forecast-temp-max">${Math.round(
+                  forecastDay.temperature.maximum
+                )}° </span>
+                <span class="weather-forecast-temp-min">${Math.round(
+                  forecastDay.temperature.minimum
+                )}°</span>
+              </div>
+            </div>`;
+    }
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
+function getForecast(city) {
+  let apiKey = "776b6d9305acf4056ofe6t078ed04517";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
+}
+
 //Add search Engine Functionality
 function showCurrentTemperature(response) {
   let currentCity = response.data.city;
@@ -75,6 +122,8 @@ function showCurrentTemperature(response) {
     `https://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`
   );
   weatherIcon.setAttribute("alt", response.data.condition.icon);
+
+  getForecast(currentCity);
 }
 
 //Search for a City
